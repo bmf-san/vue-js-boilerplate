@@ -6,7 +6,6 @@ This is a boilerplate for vue.js built by vue-cli.
 - node
 - eslint
 - unit-jest
-- typescript
 - axios
 - vue
 - vue-router
@@ -16,8 +15,8 @@ This is a boilerplate for vue.js built by vue-cli.
 # vue-cli settings
 ```sh
 Vue CLI v4.4.6
-? Please pick a preset: Manually select features
-? Check the features needed for your project: TS, Router, Linter, Unit
+? Please pick a preset: Manually select feature s
+? Check the features needed for your project: Router, Linter, Unit
 ? Use class-style component syntax? Yes
 ? Use Babel alongside TypeScript (required for modern mode, auto-detected polyfills, transpiling JSX)? No
 ? Use history mode for router? (Requires proper server setup for index fallback in production) Yes
@@ -31,6 +30,6 @@ Vue CLI v4.4.6
 
 # Get started
 `cd app`
-`npm run serve-local`
+`npm run serve`
 
-To create a production build, run ``npm run build`;
+To create a production build, run `npm run build`;
