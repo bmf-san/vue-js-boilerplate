@@ -9,8 +9,6 @@ This is a boilerplate for vue.js built by vue-cli.
 - axios
 - vue
 - vue-router
-- vue-class-component
-- vue-property-decorator
 
 # vue-cli settings
 ```sh
