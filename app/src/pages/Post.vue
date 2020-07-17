@@ -1,7 +1,7 @@
 <template>
   <div class="post">
     <h1>Posts</h1>
-    <input type="text" placeholder="name" :value="name" @input="updateName($event)" />
+    <input type="text" placeholder="name" :value="name" @input="updateName" />
     <Loader v-show="loading" />
     <ul v-show="isActive">
       <li>login:{{ user.login }}</li>
@@ -12,44 +12,43 @@
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+<script>
 import Loader from "@/components/Loader.vue";
 import apiClient from "../modules/apiClient";
 
-@Component({
+export default {
+  name: "Post",
   components: {
-    Loader,
-  }
-})
-
-export default class List extends Vue {
-  private user = "";
-  private name = "";
-  private loading = true;
-  private isActive = false;
-  private created() {
+    Loader
+  },
+  data() {
+    return {
+      user: "",
+      name: "",
+      loading: true,
+      isActive: false
+    };
+  },
+  created() {
     this.getUser();
-  }
-  private updateName($event: Event): void {
-    if ($event!.target instanceof HTMLInputElement) {
-      this.name = $event!.target.value;
+  },
+  methods: {
+    updateName(e) {
+      this.name = e.target.value;
       this.getUser();
-    }
-  }
-  private async getUser() {
-    try {
-      const response = await apiClient
-        .get("/users/" + this.name)
-        .then((response) => {
+    },
+    async getUser() {
+      try {
+        await apiClient.get("/users/" + this.name).then(response => {
           this.user = response.data;
           this.loading = false;
           this.isActive = true;
         });
-    } catch (e) {
-      this.loading = false;
-      this.isActive = false;
-      return e;
+      } catch (e) {
+        this.loading = false;
+        this.isActive = false;
+        return e;
+      }
     }
   }
 };

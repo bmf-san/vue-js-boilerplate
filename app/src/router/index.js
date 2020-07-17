@@ -1,10 +1,11 @@
 import Vue from "vue";
-import VueRouter, { RouteConfig } from "vue-router";
+import VueRouter from "vue-router";
 import Home from "../pages/Home.vue";
+import Post from "../pages/Post.vue";
 
 Vue.use(VueRouter);
 
-const routes: Array<RouteConfig> = [
+const routes = [
   {
     path: "/",
     name: "Home",
@@ -13,8 +14,7 @@ const routes: Array<RouteConfig> = [
   {
     path: "/post",
     name: "Post",
-    component: () =>
-      import("../pages/Post.vue")
+    component: Post
   }
 ];
 

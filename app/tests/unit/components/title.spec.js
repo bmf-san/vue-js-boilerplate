@@ -7,7 +7,7 @@ describe("Title.vue", () => {
     expect(wrapper.props().msg).toBeUndefined();
     expect(wrapper.isVueInstance).toBeTruthy();
   });
-  
+
   it("renders props.msg when passed", () => {
     const msg = "new message";
     const wrapper = shallowMount(Title, {
